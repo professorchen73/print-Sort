@@ -3,6 +3,7 @@
 Es zeigt visuell die Funktion eines Sortieralgorithmuses in der Konsole.
 
 ## Use
+> :warning: **nur für Linux/macOS Terminals**
 ```
 python3 printSort.py <sleep>
 ```
