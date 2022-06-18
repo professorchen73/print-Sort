@@ -5,20 +5,31 @@ import random
 
 clear = lambda: os.system('clear')
 
+def textColorRed(text):
+    return('\033[0;31m{text}\033[0;0m'.format(text=str(text)))
+def textColorGreen(text):
+    return('\033[0;32m{text}\033[0;0m'.format(text=str(text)))
+def textColorYellow(text):
+    return('\033[0;33m{text}\033[0;0m'.format(text=str(text)))
+
+
+
 def randomArray(laenge = 10, maximal = 10):
     array = []
     for i in range(laenge):
         array += [random.randint(1, maximal)]
     return array
     
-def ausgabe(array, pointer1 = -1, pointer2 = -1):
+def ausgabe(array, pointer1 = -1, pointer2 = -1, pointer3 = -1):
     m = max(array)
     while m > 0:
         for i in range(len(array)):
-            if (i == pointer1) and (array[i] == m-1):
-                sys.stdout.write("II  ")
-            elif (i == pointer2) and (array[i] == m-1):
-                sys.stdout.write("I   ")
+            if (array[i] >= m) and (pointer1 == i):
+                sys.stdout.write(textColorRed("██") + "  ")
+            elif (array[i] >= m) and (pointer2 == i):
+                sys.stdout.write(textColorYellow("██") + "  ")
+            elif (array[i] >= m) and (pointer3 == i):
+                sys.stdout.write(textColorGreen("██") + "  ")
             elif array[i] >= m:
                 sys.stdout.write("██  ")
             else:
@@ -39,13 +50,15 @@ def sortieren(array, sleep):
             if array[j] < array[min]: min = j
             time.sleep(sleep) 
             clear()
-            ausgabe(array,i, j)
+            ausgabe(array,i, j, min)
         tausche(array, i, min)
     clear()
     ausgabe(array)
 
     
     
+
+
     
     
     
