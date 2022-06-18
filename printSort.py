@@ -37,10 +37,10 @@ def sortieren(array, sleep):
         min = i
         for j in range(i+1,l):
             if array[j] < array[min]: min = j
+            time.sleep(sleep) 
             clear()
             ausgabe(array,i, j)
         tausche(array, i, min)
-        time.sleep(sleep) 
     clear()
     ausgabe(array)
 
