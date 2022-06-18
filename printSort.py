@@ -1,9 +1,16 @@
 import sys
 import os
 import time
+import random
 
 clear = lambda: os.system('clear')
 
+def randomArray(laenge = 10, maximal = 10):
+    array = []
+    for i in range(laenge):
+        array += [random.randint(1, maximal)]
+    return array
+    
 def ausgabe(array, pointer1 = -1, pointer2 = -1):
     m = max(array)
     while m > 0:
@@ -32,17 +39,31 @@ def sortieren(array, sleep):
             if array[j] < array[min]: min = j
             clear()
             ausgabe(array,i, j)
-            tausche(array, i, min)
-            time.sleep(sleep)
+        tausche(array, i, min)
+        time.sleep(sleep) 
     clear()
     ausgabe(array)
 
+    
+    
+    
+    
+    
+laenge = int(sys.argv[1])
+maximal = int(sys.argv[2])
 try:
-    sleep = float(sys.argv[1])
+    sleep = float(sys.argv[3])
 except(IndexError):
     sleep = 0.2
 
-array = [6,2,9,1,4,8,3,4,15,17,2,19,1]
+arrayUnsortiert = randomArray(laenge,maximal)
+array = arrayUnsortiert[:]
 
-ausgabe(array)
 sortieren(array, sleep)
+
+print()
+for i in range(len(array)*4):
+    sys.stdout.write("-")
+sys.stdout.write("\n")
+print("Unsortiert:", "\t", arrayUnsortiert)
+print("Sortiert:", "\t", array)
