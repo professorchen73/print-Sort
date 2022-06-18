@@ -1,6 +1,10 @@
 # printSort
 ## Was tut es?
 Es zeigt visuell die Funktion eines Sortieralgorithmuses in der Konsole. Die Zahlen werden zufällig genertiert.
+<img src="example.png" width="500">
+- **Rot**: Erste Schleife; Wird verglichen mit:
+- **Gelb**: Zweite Schleife
+- **Grün**: Makiert die aktuell kleinste Zahl in der zweiten Schleife
 
 ## Use
 > :warning: **nur für Linux/macOS Terminals**
